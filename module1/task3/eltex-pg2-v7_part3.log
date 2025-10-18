@@ -1,0 +1,92 @@
+mkdir -p D1/D2/D3
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>ls
+'"'        2025-03   2025-07   2025-11                        eltex-pg2-v7_part3.log             ssh_key
+ 2025-00   2025-04   2025-08   2025-12                        eltex-pg2-v7_part.log              ssh_key.pub
+ 2025-01   2025-05   2025-09   D1                             practice2_eltex-pg2-v7_part1.log   text.txt
+ 2025-02   2025-06   2025-10   eltex-pg2-v7_part3_gt50M.log   report_part1.txt
+eltex-pg2-v7@eltex-2025-autumn-20:05>ls D1/
+D2
+eltex-pg2-v7@eltex-2025-autumn-20:05>ls D1/D2
+D3
+eltex-pg2-v7@eltex-2025-autumn-20:05>
+
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>touch D1/D2/file.txt
+eltex-pg2-v7@eltex-2025-autumn-20:05>ls D1/D2
+D3  file.txt
+eltex-pg2-v7@eltex-2025-autumn-20:05>echo Test Test text text > file.txt
+
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>cd D1/D2/D3
+eltex-pg2-v7@eltex-2025-autumn-20:05>pwd
+/home/eltex-pg2-v7/D1/D2/D3
+eltex-pg2-v7@eltex-2025-autumn-20:05>ln ../file.txt hardlink.txt
+eltex-pg2-v7@eltex-2025-autumn-20:05>ln -s ../file.txt softlink.txt
+eltex-pg2-v7@eltex-2025-autumn-20:05>ls  hardlink.txt softlink.txt
+hardlink.txt  softlink.txt
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>cat hardlink.txt softlink.txt
+Test Test text text
+Test Test text text
+
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>ls -ali D1/D2/D3
+total 8
+788945 drwxr-xr-x 2 eltex-pg2-v7 eltex-pg2-v7 4096 Oct 18 20:10 .
+788943 drwxr-xr-x 3 eltex-pg2-v7 eltex-pg2-v7 4096 Oct 18 20:09 ..
+788836 -rw-r--r-- 2 eltex-pg2-v7 eltex-pg2-v7    0 Oct 18 20:09 hardlink.txt
+788946 lrwxrwxrwx 1 eltex-pg2-v7 eltex-pg2-v7   11 Oct 18 20:10 softlink.txt -> ../file.txt
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>cd D1/D2/
+eltex-pg2-v7@eltex-2025-autumn-20:05>ls
+D3  file.txt
+eltex-pg2-v7@eltex-2025-autumn-20:05>mv file.txt ..
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>cd ..
+eltex-pg2-v7@eltex-2025-autumn-20:05>ls
+D2  file.txt
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>cd D2/D3/
+eltex-pg2-v7@eltex-2025-autumn-20:05>ls
+hardlink.txt  softlink.txt
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>cat hardlink.txt softlink.txt
+Test Test text text
+cat: softlink.txt: No such file or directory
+
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>ls -ali
+total 8
+788945 drwxr-xr-x 2 eltex-pg2-v7 eltex-pg2-v7 4096 Oct 18 20:10 .
+788943 drwxr-xr-x 3 eltex-pg2-v7 eltex-pg2-v7 4096 Oct 18 20:13 ..
+788836 -rw-r--r-- 2 eltex-pg2-v7 eltex-pg2-v7    0 Oct 18 20:09 hardlink.txt
+788946 lrwxrwxrwx 1 eltex-pg2-v7 eltex-pg2-v7   11 Oct 18 20:10 softlink.txt -> ../file.txt
+
+Ссылка softlink.txt стала красной. т.е. не сломалась, т.к. она указывает на путь к файлу, а hardlink на индексный дескриптор
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>rm -r D2
+eltex-pg2-v7@eltex-2025-autumn-20:05>ls
+file.txt
+
+
+find / -type f -size +20M -exec du -h {} + 2>/dev/null >> "$USER_part3_gt50M.log"
+ 
+eltex-pg2-v7@eltex-2025-autumn-20:05>find . -type f -mtime -1
+./.viminfo
+./practice2_eltex-pg2-v7_part1.log
+./D1/file.txt
+./.bash_history
+./.practice2_eltex-pg2-v7_part1.log.swp
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>which find
+/usr/bin/find
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>file /usr/bin/find
+/usr/bin/find: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=5545a6c7162d325fbe5ffabcbfe4e5521b66ce70, for GNU/Linux 3.2.0, stripped
+
+eltex-pg2-v7@eltex-2025-autumn-20:05>file /boot/initrd.img*
+/boot/initrd.img-6.1.0-31-amd64: ASCII cpio archive (SVR4 with no CRC)
+/boot/initrd.img-6.1.0-32-amd64: ASCII cpio archive (SVR4 with no CRC)
+/boot/initrd.img-6.1.0-40-amd64: ASCII cpio archive (SVR4 with no CRC)
+
