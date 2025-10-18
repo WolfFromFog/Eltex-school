@@ -1,0 +1,205 @@
+eltex-pg2-v7@eltex-2025-autumn-21:16>ls
+ls           lsb_release  lsinitramfs  lslocks      lsmod        lspci
+lsattr       lscpu        lsipc        lslogins     lsns         lsusb
+lsblk        lsfd         lsirq        lsmem        lsof
+
+eltex-pg2-v7@eltex-2025-autumn-21:16>$HIST
+$HISTCMD         $HISTFILE        $HISTSIZE
+$HISTCONTROL     $HISTFILESIZE    $HISTTIMEFORMAT
+
+eltex-pg2-v7@eltex-2025-autumn-16:49>echo $HISTSIZE
+1000
+
+eltex-pg2-v7@eltex-2025-autumn-16:49>ls ~/.*
+/home/eltex-pg2-v7/.bash_history
+/home/eltex-pg2-v7/.bash_logout
+/home/eltex-pg2-v7/.bashrc
+/home/eltex-pg2-v7/.lesshst
+/home/eltex-pg2-v7/.log
+/home/eltex-pg2-v7/.practice2_eltex-pg2-v7_part1.log.swp
+/home/eltex-pg2-v7/.profile
+/home/eltex-pg2-v7/.viminfo
+
+/home/eltex-pg2-v7/.config:
+procps
+
+/home/eltex-pg2-v7/.local:
+share
+
+/home/eltex-pg2-v7/.ssh:
+id_rsa  id_rsa.pub  known_hosts
+
+eltex-pg2-v7@eltex-2025-autumn-16:51>export HISTTIMEFORMAT="%d.%m.%y: "
+eltex-pg2-v7@eltex-2025-autumn-16:51>history 10
+  539  17.10.25: $HISTSIZE
+  540  17.10.25: echo $HISTSIZE
+  541  17.10.25: pwd
+  542  17.10.25: ls ~/.*
+  543  17.10.25: history
+  544  17.10.25: export HISTTIMEFORMAT="%d.%m.%y: "
+  545  17.10.25: history
+  546  17.10.25: history 10
+  547  17.10.25: export HISTTIMEFORMAT="%d.%m.%y: "
+  548  17.10.25: history 10
+
+eltex-pg2-v7@eltex-2025-autumn-17:00>date
+Fri Oct 17 05:00:08 PM +07 2025
+eltex-pg2-v7@eltex-2025-autumn-17:00>history 10
+  548  17.10.25: history 10
+  549  17.10.25: date
+  550  17.10.25: history 10
+  551  17.10.25: vi ~/.bash_history
+  552  17.10.25: vi ~/.bashrc
+  553  17.10.25: echo $PROMPT_COMMAND
+  554  17.10.25: PROMPT_COMMAND=
+  555  17.10.25: vi ~/.bash_history
+  556  17.10.25: date
+  557  17.10.25: history 10
+
+eltex-pg2-v7@eltex-2025-autumn-17:01>tail -n 10 ~/.bash_history
+#1760694864
+date
+#1760694867
+history 10
+#1760694925
+vi ~/.bash_history
+#1760694988
+vi ~/.bashrc
+#1760695171
+echo $PROMPT_COMMAND
+
+eltex-pg2-v7@eltex-2025-autumn-17:02>PROMPT_COMMAND='history -a'
+eltex-pg2-v7@eltex-2025-autumn-17:03>date
+Fri Oct 17 05:03:12 PM +07 2025
+eltex-pg2-v7@eltex-2025-autumn-17:03>history 10
+  553  17.10.25: echo $PROMPT_COMMAND
+  554  17.10.25: PROMPT_COMMAND=
+  555  17.10.25: vi ~/.bash_history
+  556  17.10.25: date
+  557  17.10.25: history 10
+  558  17.10.25: vi ~/.bash_history
+  559  17.10.25: tail -n 10 ~/.bash_history
+  560  17.10.25: PROMPT_COMMAND='history -a'
+  561  17.10.25: date
+  562  17.10.25: history 10
+
+eltex-pg2-v7@eltex-2025-autumn-17:03>tail -n 10 ~/.bash_history
+#1760695249
+vi ~/.bash_history
+#1760695339
+tail -n 10 ~/.bash_history
+#1760695385
+PROMPT_COMMAND='history -a'
+#1760695392
+date
+#1760695395
+history 10
+eltex-pg2-v7@eltex-2025-autumn-17:03>
+
+eltex-pg2-v7@eltex-2025-autumn-17:32>DATE=$(date "+%d.%m.%y")
+eltex-pg2-v7@eltex-2025-autumn-17:32>echo $DATE
+17.10.25
+
+eltex-pg2-v7@eltex-2025-autumn-17:32>TIME=$(date +"%R")
+eltex-pg2-v7@eltex-2025-autumn-17:32>echo $TIME
+17:32
+
+eltex-pg2-v7@eltex-2025-autumn-17:33>DATE_TIME="$DATE $TIME"
+eltex-pg2-v7@eltex-2025-autumn-17:33>echo $DATE_TIME
+17.10.25 17:32
+
+eltex-pg2-v7@eltex-2025-autumn-17:34>ls /sbin/*[0-9]*
+/sbin/dumpe2fs     /sbin/e2scrub      /sbin/fsck.ext3  /sbin/mkfs.ext4
+/sbin/e2freefrag   /sbin/e2scrub_all  /sbin/fsck.ext4  /sbin/resize2fs
+/sbin/e2fsck       /sbin/e2undo       /sbin/killall5   /sbin/tune2fs
+/sbin/e2image      /sbin/e4crypt      /sbin/mke2fs     /sbin/update-grub2
+/sbin/e2label      /sbin/e4defrag     /sbin/mkfs.ext2
+/sbin/e2mmpstatus  /sbin/fsck.ext2    /sbin/mkfs.ext3
+
+eltex-pg2-v7@eltex-2025-autumn-17:34>ls /bin/*[0-9]*
+/bin/addr2line                  /bin/sha1sum
+/bin/b2sum                      /bin/sha224sum
+/bin/base32                     /bin/sha256sum
+/bin/base64                     /bin/sha384sum
+/bin/bunzip2                    /bin/sha512sum
+/bin/bzip2                      /bin/ssh-argv0
+/bin/bzip2recover               /bin/systemd-id128
+/bin/c89                        /bin/traceroute6
+/bin/c89-gcc                    /bin/traceroute6.db
+/bin/c99                        /bin/x86_64
+/bin/c99-gcc                    /bin/x86_64-linux-gnu-addr2line
+/bin/cpan5.36-x86_64-linux-gnu  /bin/x86_64-linux-gnu-ar
+/bin/cpp-12                     /bin/x86_64-linux-gnu-as
+/bin/diff3                      /bin/x86_64-linux-gnu-c++filt
+/bin/enc2xs                     /bin/x86_64-linux-gnu-cpp
+/bin/gcc-12                     /bin/x86_64-linux-gnu-cpp-12
+/bin/gcc-ar-12                  /bin/x86_64-linux-gnu-dwp
+/bin/gcc-nm-12                  /bin/x86_64-linux-gnu-elfedit
+/bin/gcc-ranlib-12              /bin/x86_64-linux-gnu-gcc
+/bin/gcov-12                    /bin/x86_64-linux-gnu-gcc-12
+/bin/gcov-dump-12               /bin/x86_64-linux-gnu-gcc-ar
+/bin/gcov-tool-12               /bin/x86_64-linux-gnu-gcc-ar-12
+/bin/grub-menulst2cfg           /bin/x86_64-linux-gnu-gcc-nm
+/bin/grub-mkpasswd-pbkdf2       /bin/x86_64-linux-gnu-gcc-nm-12
+/bin/grub-syslinux2cfg          /bin/x86_64-linux-gnu-gcc-ranlib
+/bin/h2ph                       /bin/x86_64-linux-gnu-gcc-ranlib-12
+/bin/h2xs                       /bin/x86_64-linux-gnu-gcov
+/bin/i386                       /bin/x86_64-linux-gnu-gcov-12
+/bin/linux32                    /bin/x86_64-linux-gnu-gcov-dump
+/bin/linux64                    /bin/x86_64-linux-gnu-gcov-dump-12
+/bin/lto-dump-12                /bin/x86_64-linux-gnu-gcov-tool
+/bin/md5sum                     /bin/x86_64-linux-gnu-gcov-tool-12
+/bin/md5sum.textutils           /bin/x86_64-linux-gnu-gold
+/bin/pdb3                       /bin/x86_64-linux-gnu-gp-archive
+/bin/pdb3.11                    /bin/x86_64-linux-gnu-gp-collect-app
+/bin/perl5.36.0                 /bin/x86_64-linux-gnu-gp-display-html
+/bin/perl5.36-x86_64-linux-gnu  /bin/x86_64-linux-gnu-gp-display-src
+/bin/ping4                      /bin/x86_64-linux-gnu-gp-display-text
+/bin/ping6                      /bin/x86_64-linux-gnu-gprof
+/bin/pl2pm                      /bin/x86_64-linux-gnu-gprofng
+/bin/pod2html                   /bin/x86_64-linux-gnu-ld
+/bin/pod2man                    /bin/x86_64-linux-gnu-ld.bfd
+/bin/pod2text                   /bin/x86_64-linux-gnu-ld.gold
+/bin/pod2usage                  /bin/x86_64-linux-gnu-lto-dump
+/bin/py3clean                   /bin/x86_64-linux-gnu-lto-dump-12
+/bin/py3compile                 /bin/x86_64-linux-gnu-nm
+/bin/py3versions                /bin/x86_64-linux-gnu-objcopy
+/bin/pydoc3                     /bin/x86_64-linux-gnu-objdump
+/bin/pydoc3.11                  /bin/x86_64-linux-gnu-ranlib
+/bin/pygettext3                 /bin/x86_64-linux-gnu-readelf
+/bin/pygettext3.11              /bin/x86_64-linux-gnu-size
+/bin/python3                    /bin/x86_64-linux-gnu-strings
+/bin/python3.11                 /bin/x86_64-linux-gnu-strip
+
+>export PS1="\u@\h-$(date +%H:%M)>"
+eltex-pg2-v7@eltex-2025-autumn-17:37>
+
+eltex-pg2-v7@eltex-2025-autumn-17:37>export PS1=">"
+>export PS1="${USER}@${HOSTNAME}-$(date +%H:%M)>"
+eltex-pg2-v7@eltex-2025-autumn-17:38>
+
+eltex-pg2-v7@eltex-2025-autumn-17:45>echo 'PS1="${USER}@${HOSTNAME}-$(date +%H:%M)>"'>> ~/.bashrc
+eltex-pg2-v7@eltex-2025-autumn-17:45>bash
+eltex-pg2-v7@eltex-2025-autumn-17:46>exit
+exit
+eltex-pg2-v7@eltex-2025-autumn-17:45>echo "Это родительский bash"
+Это родительский bash
+eltex-pg2-v7@eltex-2025-autumn-17:45>bash
+eltex-pg2-v7@eltex-2025-autumn-17:46>echo "Это дочерний"
+Это дочерний
+eltex-pg2-v7@eltex-2025-autumn-17:46>exit
+exit
+eltex-pg2-v7@eltex-2025-autumn-17:45>
+
+
+
+eltex-pg2-v7@eltex-2025-autumn-17:45>mkdir $(date +%Y)-0{0..9} $(date +%Y)-1{0..2}
+
+eltex-pg2-v7@eltex-2025-autumn-17:45>ls
+'"'        2025-04   2025-09   eltex-pg2-v7_part3_gt50M.log       ssh_key
+ 2025-00   2025-05   2025-10   eltex-pg2-v7_part3.log             ssh_key.pub
+ 2025-01   2025-06   2025-11   eltex-pg2-v7_part.log              text.txt
+ 2025-02   2025-07   2025-12   practice2_eltex-pg2-v7_part1.log
+ 2025-03   2025-08   D1        report_part1.txt
+
+
